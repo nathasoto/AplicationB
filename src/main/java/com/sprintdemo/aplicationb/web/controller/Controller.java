@@ -27,8 +27,10 @@ public class Controller {
 
     @GetMapping("/random")
     public Object getRandomPersonnage(){
-        int randomNumber = (int)(Math.random() * (4 - 1)+1);//génération d'un entier >= 1 et < 4
-        String url = "http://localhost:8081/Personnage/"+randomNumber;
+
+         //todo
+        int randomNumber = (int)(Math.random() * (4 - 1)+1);//génération d'un entier >= 1 et < 4 (max - min)+ min
+        String url = "http://localhost:8081/api/personages/"+randomNumber;
         Object personnage = restTemplate.getForObject(url,Object.class);
         return  personnage;
     }
@@ -37,15 +39,14 @@ public class Controller {
     public Personnage ajouterPersonnage() {
 
         String nom = getRandomNom();
-        int id = 7;
+        int point_de_vie = (int)(Math.random() * (12 - 1)+1);
         String type = "magicien";
-        int pointDeVie = 7;
 
-        Personnage personnage = new Personnage(id, nom,type,pointDeVie);
-        String url = "http://localhost:8081/Personnage";
+        Personnage personnage = new Personnage(nom,point_de_vie,type);
+        String url = "http://localhost:8081/api/personages";
         restTemplate.postForLocation(url, personnage);
 
-        return personnage;
+        return personnage ;
 
     }
 

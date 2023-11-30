@@ -3,31 +3,22 @@ package com.sprintdemo.aplicationb.web.model;
 public class Personnage {
 
 
-    private int id;
-
     private String nom;
 
     private String type;
 
-    private int pointDeVie;
+    private int point_de_vie;
 
     public Personnage() {
     }
 
-    public Personnage(int id, String nom, String type, int pointDeVie) {
-        this.id = id;
+    public Personnage(String nom, int point_de_vie, String type) {
+
         this.nom = nom;
+        this.point_de_vie = point_de_vie;
         this.type = type;
-        this.pointDeVie = pointDeVie;
     }
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
 
     public String getNom() {
         return nom;
@@ -46,20 +37,19 @@ public class Personnage {
     }
 
     public int getpointDeVie() {
-        return pointDeVie;
+        return point_de_vie;
     }
 
-    public void setpointDeVie(int pointDeVie) {
-        this.pointDeVie = pointDeVie;
+    public void setpointDeVie(int point_de_vie) {
+        this.point_de_vie = point_de_vie;
     }
 
     @Override
     public String toString() {
         return "Personnage{" +
-                "id=" + id +
                 ", nom='" + nom + '\'' +
-                ", type='" + type + '\'' +
-                ", pointDeVie=" + pointDeVie +
+                //", type='" + type + '\'' +
+                //", point_de_vie=" + point_de_vie +
                 '}';
     }
 
